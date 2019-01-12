@@ -24,7 +24,8 @@ target/release/csv2json -i [input] -o [output]
 and that's it!
 
 ## Example
-![Example](https://raw.githubusercontent.com/perzanko/csv2json/master/example/example.png)
+
+<img src="https://raw.githubusercontent.com/perzanko/csv2json/master/example/example.png" width="500">
 
 ## Authors
 
