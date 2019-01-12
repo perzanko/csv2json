@@ -11,11 +11,13 @@ use std::time::Instant;
 type Lines = Vec<String>;
 type Nav = String;
 type NavKeys = Vec<String>;
+type Args = Vec<String>;
 type Rows = Vec<HashMap<String, String>>;
+type Hash = HashMap<String, String>;
 
 fn main() {
     let start_time = Instant::now();
-    let (input_file, output_file) = parse_args();
+    let (input_file, output_file) = parse_args(&env::args().collect::<Args>());
 
     if is_str_empty(&input_file) || is_str_empty(&output_file) {
       show_help();
@@ -36,10 +38,10 @@ fn main() {
     println!("Elapsed: {} ms", get_elapsed_time(start_time));
 }
 
-fn parse_args() -> (String, String) {
+fn parse_args(args: &Args) -> (String, String) {
   let mut input_file = String::new();
   let mut output_file = String::new();
-  let mut args: Vec<String> = env::args().collect();
+  let mut args: Args = args.clone();
   args.remove(0);
   args
     .chunks(2)
@@ -84,7 +86,7 @@ fn fetch_keys(keys_str: &String) -> NavKeys {
     .collect()
 }
 
-fn generate_rows(lines: &Lines, nav: &NavKeys) -> Vec<HashMap<String, String>> {
+fn generate_rows(lines: &Lines, nav: &NavKeys) -> Vec<Hash> {
   lines
     .into_iter()
     .map(|line| {
@@ -116,9 +118,9 @@ This tool provides simple and efficient csv to json conversion.
 
 Usage: csv2json --input [path] --output [path]
 
-  -h or --help                              print this help
-  -i or --input                             path of CSV file
-  -o or --output                            output path of converted JSON
+  -h, --help                          print this help
+  -i, --input                         input path of CSV file
+  -o, --output                        output path of converted JSON
 
 ")
 }
