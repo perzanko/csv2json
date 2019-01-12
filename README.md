@@ -23,6 +23,9 @@ target/release/csv2json -i [input] -o [output]
 ```
 and that's it!
 
+## Example
+![Example](https://raw.githubusercontent.com/perzanko/csv2json/master/example/example.png)
+
 ## Authors
 
 * **Kacper Perzankowski** - [perzanko](https://github.com/perzanko)
