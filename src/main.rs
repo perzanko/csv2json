@@ -34,7 +34,6 @@ fn main() {
 
     println!("Rows: {}", rows.len());
     println!("Elapsed: {} ms", get_elapsed_time(start_time));
-    process::exit(0x0100);
 }
 
 fn parse_args() -> (String, String) {
